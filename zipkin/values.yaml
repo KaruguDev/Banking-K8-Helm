@@ -1,0 +1,25 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deploymentName: zipkin-deployment
+deploymentLabel: zipkin
+
+replicaCount: 1
+
+docker:
+  repository: openzipkin/zipkin:latest
+
+config_enabled: false
+zipkin_enabled: false
+profile_enabled: false
+eureka_enabled: false
+keycloak_enabled: false
+rabbitmq_enabled: true
+secondary_port_enabled: false
+
+containerPort: 9411
+
+service:
+  type: ClusterIP
+  port: 9411
+  targetPort: 9411

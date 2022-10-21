@@ -1,0 +1,30 @@
+dependencies:
+- name: common
+  repository: file://../../common
+  version: 0.1.0
+- name: rabbitmq
+  repository: file://../../rabbitmq
+  version: 0.1.0
+- name: zipkin
+  repository: file://../../zipkin
+  version: 0.1.0
+- name: config-server
+  repository: file://../../config-server
+  version: 0.1.0
+- name: eureka-server
+  repository: file://../../eureka-server
+  version: 0.1.0
+- name: gateway-server
+  repository: file://../../gateway-server
+  version: 0.1.0
+- name: accounts
+  repository: file://../../accounts
+  version: 0.1.0
+- name: cards
+  repository: file://../../cards
+  version: 0.1.0
+- name: loans
+  repository: file://../../loans
+  version: 0.1.0
+digest: sha256:97a79a9c2e1d803c88c679af43da8b1a87cccba9880e99c84b5a7d3a62bbf2d5
+generated: "2022-10-21T12:39:49.940651316+03:00"

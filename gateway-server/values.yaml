@@ -1,0 +1,25 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deploymentName: api-gateway-deployment
+deploymentLabel: api-gateway
+
+replicaCount: 1
+
+docker:
+  repository: pkarugu/gateway-server:latest
+
+config_enabled: true
+zipkin_enabled: true
+profile_enabled: true
+eureka_enabled: true
+keycloak_enabled: true
+rabbitmq_enabled: true
+secondary_port_enabled: false
+
+containerPort: 8057
+
+service:
+  type: LoadBalancer
+  port: 8057
+  targetPort: 8057

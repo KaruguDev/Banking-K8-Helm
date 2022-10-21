@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deploymentName }}
+  labels:
+    app: {{ .Values.deploymentLabel }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.deploymentLabel }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.deploymentLabel }}
+    spec:
+      containers:
+        - name: {{ .Values.deploymentLabel }}
+          image: {{ .Values.docker.repository }}
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+              protocol: TCP
+          env:
+            - name: RABBIT_QUEUE
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.global.configMapName }}
+                  key: RABBIT_QUEUE
+            - name: RABBIT_ADDRESSES
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.global.configMapName }}
+                  key: RABBIT_ADDRESSES
+            - name: RABBIT_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.global.configMapName }}
+                  key: RABBIT_USER
+            - name: RABBIT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ .Values.global.configMapName }}
+                  key: RABBIT_PASSWORD

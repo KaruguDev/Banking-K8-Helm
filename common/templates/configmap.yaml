@@ -1,0 +1,19 @@
+{{- define "common.configmap" }}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.global.configMapName }}
+data:
+  SPRING_ZIPKIN_BASEURL: {{ .Values.global.zipkinBaseURL }}
+  SPRING_PROFILES_ACTIVE: {{ .Values.global.activeProfile }}
+  SPRING_CONFIG_IMPORT: {{ .Values.global.configServerURL }}
+  EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: {{ .Values.global.eurekaServerURL }}
+  SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK-SET-URI: {{ .Values.global.keyCloakURL }}
+  SPRING_ZIPKIN_SENDER_TYPE: {{ .Values.global.rabbitmq.senderType }}
+  SPRING_RABBITMQ_HOST: {{ .Values.global.rabbitmq.host }}
+  SPRING_RABBITMQ_PORT: "{{ .Values.global.rabbitmq.port }}"
+  RABBIT_QUEUE: {{ .Values.global.rabbitmq.messageQueue }}
+  RABBIT_ADDRESSES: {{ .Values.global.rabbitmq.address }}
+  RABBIT_PASSWORD: {{ .Values.global.rabbitmq.password }}
+  RABBIT_USER: {{ .Values.global.rabbitmq.user }}
+{{ end -}}

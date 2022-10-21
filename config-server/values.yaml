@@ -1,0 +1,25 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deploymentName: configserver-deployment
+deploymentLabel: configserver
+
+replicaCount: 1
+
+docker:
+  repository: pkarugu/config-server:latest
+
+config_enabled: false
+zipkin_enabled: true
+profile_enabled: true
+eureka_enabled: true
+keycloak_enabled: false
+rabbitmq_enabled: true
+secondary_port_enabled: false
+
+containerPort: 8050
+
+service:
+  type: ClusterIP
+  port: 8050
+  targetPort: 8050

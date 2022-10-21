@@ -1,0 +1,15 @@
+global:
+  activeProfile: dev
+  configMapName: banking-configmap-dev
+  zipkinBaseURL: http://zipkin:9411/
+  configServerURL: configserver:http://configserver:8050/
+  eurekaServerURL: http://eurekaserver:8055/eureka/
+  keyCloakURL: http://keycloak:8080/realms/master/protocol/openid-connect/certs
+  rabbitmq:
+    host: rabbitmq
+    senderType: rabbit
+    user: guest
+    password: guest
+    port: 5672
+    address: rabbitmq:5672
+    messageQueue: zipkin-queue

@@ -1,0 +1,21 @@
+{{- define "common.service" }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.deploymentLabel }}
+spec:
+  selector:
+    app: {{ .Values.deploymentLabel }}
+  type: {{ .Values.service.type }}
+  ports:
+    - name: http
+      protocol: TCP
+      port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+    {{- if .Values.secondary_port_enabled }}
+    - name: secondary-port
+      protocol: TCP
+      port: {{ .Values.service.port2 }}
+      targetPort: {{ .Values.service.targetPort2 }}
+    {{- end }}
+{{ end -}}

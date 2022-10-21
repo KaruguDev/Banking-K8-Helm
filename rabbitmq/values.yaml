@@ -1,0 +1,28 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+deploymentName: rabbitmq-deployment
+deploymentLabel: rabbitmq
+
+replicaCount: 1
+
+docker:
+  repository: rabbitmq:3-management
+
+config_enabled: false
+zipkin_enabled: false
+profile_enabled: false
+eureka_enabled: false
+keycloak_enabled: false
+rabbitmq_enabled: false
+secondary_port_enabled: true
+
+containerPort: 15672
+secondaryContainerPort: 5672
+
+service:
+  type: ClusterIP
+  port: 15672
+  targetPort: 15672
+  port2: 5672
+  targetPort2: 5672
